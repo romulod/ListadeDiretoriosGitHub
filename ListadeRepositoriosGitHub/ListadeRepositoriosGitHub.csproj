@@ -33,7 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Octokit, Version=0.24.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\Octokit.0.26.0\lib\net45\Octokit.dll</HintPath>
+      <HintPath>..\packages\Octokit.0.24.0\lib\net45\Octokit.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -48,16 +48,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frmteladeacesso.cs">
+    <Compile Include="frmTeladeAcesso.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmteladeacesso.Designer.cs">
-      <DependentUpon>frmteladeacesso.cs</DependentUpon>
+    <Compile Include="frmTeladeAcesso.Designer.cs">
+      <DependentUpon>frmTeladeAcesso.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frmteladeacesso.resx">
-      <DependentUpon>frmteladeacesso.cs</DependentUpon>
+    <EmbeddedResource Include="frmTeladeAcesso.resx">
+      <DependentUpon>frmTeladeAcesso.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -69,6 +69,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Octokit.Repository.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

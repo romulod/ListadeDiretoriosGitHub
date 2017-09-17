@@ -1,18 +1,19 @@
-﻿using System.Windows.Forms;
+﻿using System;
+using System.Windows.Forms;
 
 namespace ListadeRepositoriosGitHub
 {
-    partial class frmteladeacesso
+    partial class FrmTeladeAcesso
     {
         /// <summary>
-        /// Variável de designer necessária.
+        /// Required designer variable.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
 
         /// <summary>
-        /// Limpar os recursos que estão sendo usados.
+        /// Clean up any resources being used.
         /// </summary>
-        /// <param name="disposing">true se for necessário descartar os recursos gerenciados; caso contrário, false.</param>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
         protected override void Dispose(bool disposing)
         {
             if (disposing && (components != null))
@@ -22,38 +23,44 @@ namespace ListadeRepositoriosGitHub
             base.Dispose(disposing);
         }
 
-        #region Código gerado pelo Windows Form Designer
+        #region Windows Form Designer generated code
 
         /// <summary>
-        /// Método necessário para suporte ao Designer - não modifique 
-        /// o conteúdo deste método com o editor de código.
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.txtUsuario = new System.Windows.Forms.TextBox();
+            this.txtSenha = new System.Windows.Forms.TextBox();
+            this.btnConsultar = new System.Windows.Forms.Button();
+            this.lblLista = new System.Windows.Forms.Label();
+            this.repositoryBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.searchRepositoriesRequestBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lblConsulta = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.richtxtConsulta = new System.Windows.Forms.RichTextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchRepositoriesRequestBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(47, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(215, 13);
+            this.label1.Size = new System.Drawing.Size(99, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Consulta a Lista de Repósitorios do GitHub :";
+            this.label1.Text = "Consulta ao GitHub";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(39, 42);
+            this.label2.Location = new System.Drawing.Point(16, 43);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 1;
@@ -62,91 +69,119 @@ namespace ListadeRepositoriosGitHub
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 64);
+            this.label3.Location = new System.Drawing.Point(21, 65);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Senha :";
             // 
-            // textBox1
+            // txtUsuario
             // 
-            this.textBox1.AccessibleName = "usuario";
-            this.textBox1.Location = new System.Drawing.Point(94, 39);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 3;
-            this.textBox1.TextChanged += new System.EventHandler(this.TextBox1_TextChanged);
+            this.txtUsuario.AccessibleName = "usuario";
+            this.txtUsuario.Location = new System.Drawing.Point(71, 41);
+            this.txtUsuario.Name = "txtUsuario";
+            this.txtUsuario.Size = new System.Drawing.Size(100, 20);
+            this.txtUsuario.TabIndex = 3;
             // 
-            // textBox2
+            // txtSenha
             // 
-            this.textBox2.AccessibleName = "senha";
-            this.textBox2.Location = new System.Drawing.Point(94, 64);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.TextChanged += new System.EventHandler(this.TextBox2_TextChanged);
+            this.txtSenha.AccessibleName = "senha";
+            this.txtSenha.Location = new System.Drawing.Point(71, 63);
+            this.txtSenha.Name = "txtSenha";
+            this.txtSenha.Size = new System.Drawing.Size(100, 20);
+            this.txtSenha.TabIndex = 4;
+            this.txtSenha.UseSystemPasswordChar = true;
             // 
-            // button1
+            // btnConsultar
             // 
-            this.button1.Location = new System.Drawing.Point(145, 90);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(49, 23);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "Buscar";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Button1_Click);
+            this.btnConsultar.Location = new System.Drawing.Point(108, 89);
+            this.btnConsultar.Name = "btnConsultar";
+            this.btnConsultar.Size = new System.Drawing.Size(63, 23);
+            this.btnConsultar.TabIndex = 5;
+            this.btnConsultar.Text = "Consultar";
+            this.btnConsultar.UseVisualStyleBackColor = true;
+            this.btnConsultar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            // 
+            // lblLista
+            // 
+            this.lblLista.AutoSize = true;
+            this.lblLista.Location = new System.Drawing.Point(193, 17);
+            this.lblLista.Name = "lblLista";
+            this.lblLista.Size = new System.Drawing.Size(111, 13);
+            this.lblLista.TabIndex = 6;
+            this.lblLista.Text = "Lista de Repositórios :";
+            // 
+            // repositoryBindingSource
+            // 
+            this.repositoryBindingSource.DataSource = typeof(Octokit.Repository);
+            // 
+            // searchRepositoriesRequestBindingSource
+            // 
+            this.searchRepositoriesRequestBindingSource.DataSource = typeof(Octokit.SearchRepositoriesRequest);
+            // 
+            // lblConsulta
+            // 
+            this.lblConsulta.AutoSize = true;
+            this.lblConsulta.Location = new System.Drawing.Point(199, 41);
+            this.lblConsulta.Name = "lblConsulta";
+            this.lblConsulta.Size = new System.Drawing.Size(0, 13);
+            this.lblConsulta.TabIndex = 7;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(232, 29);
+            this.label4.Location = new System.Drawing.Point(197, 39);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(111, 13);
-            this.label4.TabIndex = 6;
-            this.label4.Text = "Lista de Repositórios :";
+            this.label4.Size = new System.Drawing.Size(0, 13);
+            this.label4.TabIndex = 8;
             // 
-            // dataGridView1
+            // richtxtConsulta
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(235, 54);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(419, 333);
-            this.dataGridView1.TabIndex = 7;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.richtxtConsulta.Location = new System.Drawing.Point(196, 40);
+            this.richtxtConsulta.Name = "richtxtConsulta";
+            this.richtxtConsulta.Size = new System.Drawing.Size(544, 288);
+            this.richtxtConsulta.TabIndex = 9;
+            this.richtxtConsulta.Text = "";
             // 
-            // Form1
+            // FrmTeladeAcesso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(666, 399);
-            this.Controls.Add(this.dataGridView1);
+            this.ClientSize = new System.Drawing.Size(752, 340);
+            this.Controls.Add(this.richtxtConsulta);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.lblConsulta);
+            this.Controls.Add(this.lblLista);
+            this.Controls.Add(this.btnConsultar);
+            this.Controls.Add(this.txtSenha);
+            this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.Name = "FrmTeladeAcesso";
+            this.Text = "frmTeladeAcesso";
+            this.Load += new System.EventHandler(this.FrmTeladeAcesso_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.repositoryBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.searchRepositoriesRequestBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
+
 
         #endregion
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private DataGridViewCellEventHandler dataGridView1_CellContentClick;
+        private System.Windows.Forms.TextBox txtUsuario;
+        private System.Windows.Forms.TextBox txtSenha;
+        private System.Windows.Forms.Button btnConsultar;
+        private System.Windows.Forms.Label lblLista;
+        private BindingSource searchRepositoriesRequestBindingSource;
+        private BindingSource repositoryBindingSource;
+        private Label lblConsulta;
+        private Label label4;
+        private RichTextBox richtxtConsulta;
     }
 }
-
