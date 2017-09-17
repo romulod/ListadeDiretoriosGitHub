@@ -1,6 +1,7 @@
 ﻿using Octokit;
 using System;
 using System.Collections.Generic;
+using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -21,10 +22,10 @@ namespace ListadeRepositoriosGitHub
 
                 if (repositorioList != null)
                 {
-
+                    StringBuilder result = new StringBuilder();
                     foreach (var itemRepositorio in repositorioList)
-
-                    richtxtConsulta.Text = (string.Format("{0} - {1}\n\t{2}\n\tCriado em {3}", itemRepositorio.Id, itemRepositorio.Name, itemRepositorio.Url, itemRepositorio.CreatedAt.ToString("dd/MM/yyyy - HH:mm")));
+                    result.AppendLine((string.Format("{0} - {1}\n\t{2}\n\tCriado em {3}", itemRepositorio.Id, itemRepositorio.Name, itemRepositorio.Url, itemRepositorio.CreatedAt.ToString("dd/MM/yyyy - HH:mm"))) + "\n");
+                    richtxtConsulta.Text = result.ToString();
                 }
             }
             catch (AggregateException ex)
