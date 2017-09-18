@@ -13,58 +13,51 @@ namespace ListadeRepositoriosGitHub
         {
             InitializeComponent();
         }
-
-        public void BtnBuscar_Click(object sender, EventArgs e)
+        //Instalar Pacote Octokit -Version 0.26.0
+        public void BtnConsulta_Click(object sender, EventArgs e)
         {
             try
             {
-                var repositorioList = ObterGitHubRepositorioList(txtUsuario.Text, txtSenha.Text);
+                var listaRepositorio = AcessoaoGHListaRepositorio(txtUsuario.Text, txtSenha.Text);
 
-                if (repositorioList != null)
+                if (listaRepositorio != null)
                 {
                     StringBuilder result = new StringBuilder();
-                    foreach (var itemRepositorio in repositorioList)
+                    foreach (var itemRepositorio in listaRepositorio)
                     result.AppendLine((string.Format("{0} - {1}\n\t{2}\n\tCriado em {3}", itemRepositorio.Id, itemRepositorio.Name, itemRepositorio.Url, itemRepositorio.CreatedAt.ToString("dd/MM/yyyy - HH:mm"))) + "\n");
                     richtxtConsulta.Text = result.ToString();
                 }
+
             }
-            catch (AggregateException ex)
+            catch (AggregateException)
             {
-                Console.Clear();
-                Console.WriteLine("Erro ao obter repositório: ");
-                Console.WriteLine(ex.Message);
-                foreach (var innerException in ex.InnerExceptions)
-                    Console.WriteLine(innerException.Message);
-            }
-            catch (Exception ex)
-            {
-                Console.Clear();
-                Console.WriteLine("Erro ao obter repositório: ");
-                Console.WriteLine(ex.Message);
+                richtxtConsulta.Text = ("Usuário ou senha inválido(s)! ");
+
             }
             finally
             {
                 Console.Read();
             }
         }
-    
 
+        private void BtnNvConsulta_Click_1(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Restart();
+        }
 
-         private static IReadOnlyList<Repository> ObterGitHubRepositorioList(string usuario, string senha)
+        
+
+        private static IReadOnlyList<Repository> AcessoaoGHListaRepositorio(string usuario, string senha)
          {
-         Task<IReadOnlyList<Repository>> repositorioList = null;
+         Task<IReadOnlyList<Repository>> listaRepositorio = null;
             GitHubClient client = new GitHubClient(new ProductHeaderValue(AppDomain.CurrentDomain.FriendlyName))
             {
                 Credentials = new Credentials(usuario, senha)
             };
-            Task.Run(() => repositorioList = client.Repository.GetAllForUser(usuario)).Wait();
-         return repositorioList.Result;
+            Task.Run(() => listaRepositorio = client.Repository.GetAllForUser(usuario)).Wait();
+         return listaRepositorio.Result;
          }
 
-        private void FrmTeladeAcesso_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 
 }

@@ -44,6 +44,7 @@ namespace ListadeRepositoriosGitHub
             this.lblConsulta = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.richtxtConsulta = new System.Windows.Forms.RichTextBox();
+            this.btnNvConsulta = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.repositoryBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchRepositoriesRequestBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -51,16 +52,16 @@ namespace ListadeRepositoriosGitHub
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(47, 17);
+            this.label1.Location = new System.Drawing.Point(50, 19);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 13);
+            this.label1.Size = new System.Drawing.Size(94, 13);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Consulta ao GitHub";
+            this.label1.Text = "Digite seus dados:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 43);
+            this.label2.Location = new System.Drawing.Point(15, 47);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(49, 13);
             this.label2.TabIndex = 1;
@@ -69,7 +70,7 @@ namespace ListadeRepositoriosGitHub
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 65);
+            this.label3.Location = new System.Drawing.Point(20, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(44, 13);
             this.label3.TabIndex = 2;
@@ -78,7 +79,7 @@ namespace ListadeRepositoriosGitHub
             // txtUsuario
             // 
             this.txtUsuario.AccessibleName = "usuario";
-            this.txtUsuario.Location = new System.Drawing.Point(71, 41);
+            this.txtUsuario.Location = new System.Drawing.Point(70, 45);
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(100, 20);
             this.txtUsuario.TabIndex = 3;
@@ -86,7 +87,7 @@ namespace ListadeRepositoriosGitHub
             // txtSenha
             // 
             this.txtSenha.AccessibleName = "senha";
-            this.txtSenha.Location = new System.Drawing.Point(71, 63);
+            this.txtSenha.Location = new System.Drawing.Point(70, 67);
             this.txtSenha.Name = "txtSenha";
             this.txtSenha.Size = new System.Drawing.Size(100, 20);
             this.txtSenha.TabIndex = 4;
@@ -94,20 +95,21 @@ namespace ListadeRepositoriosGitHub
             // 
             // btnConsultar
             // 
-            this.btnConsultar.Location = new System.Drawing.Point(108, 89);
+            this.btnConsultar.Location = new System.Drawing.Point(107, 93);
             this.btnConsultar.Name = "btnConsultar";
             this.btnConsultar.Size = new System.Drawing.Size(63, 23);
             this.btnConsultar.TabIndex = 5;
             this.btnConsultar.Text = "Consultar";
             this.btnConsultar.UseVisualStyleBackColor = true;
-            this.btnConsultar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            this.btnConsultar.Click += new System.EventHandler(this.BtnConsulta_Click);
             // 
             // lblLista
             // 
             this.lblLista.AutoSize = true;
-            this.lblLista.Location = new System.Drawing.Point(193, 17);
+            this.lblLista.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLista.Location = new System.Drawing.Point(204, 21);
             this.lblLista.Name = "lblLista";
-            this.lblLista.Size = new System.Drawing.Size(111, 13);
+            this.lblLista.Size = new System.Drawing.Size(141, 16);
             this.lblLista.TabIndex = 6;
             this.lblLista.Text = "Lista de Repositórios :";
             // 
@@ -137,17 +139,28 @@ namespace ListadeRepositoriosGitHub
             // 
             // richtxtConsulta
             // 
-            this.richtxtConsulta.Location = new System.Drawing.Point(196, 40);
+            this.richtxtConsulta.Location = new System.Drawing.Point(200, 40);
             this.richtxtConsulta.Name = "richtxtConsulta";
-            this.richtxtConsulta.Size = new System.Drawing.Size(544, 288);
+            this.richtxtConsulta.Size = new System.Drawing.Size(583, 343);
             this.richtxtConsulta.TabIndex = 9;
             this.richtxtConsulta.Text = "";
+            // 
+            // btnNvConsulta
+            // 
+            this.btnNvConsulta.Location = new System.Drawing.Point(690, 14);
+            this.btnNvConsulta.Name = "btnNvConsulta";
+            this.btnNvConsulta.Size = new System.Drawing.Size(93, 23);
+            this.btnNvConsulta.TabIndex = 10;
+            this.btnNvConsulta.Text = "Nova Consulta";
+            this.btnNvConsulta.UseVisualStyleBackColor = true;
+            this.btnNvConsulta.Click += new System.EventHandler(this.BtnNvConsulta_Click_1);
             // 
             // FrmTeladeAcesso
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(752, 340);
+            this.ClientSize = new System.Drawing.Size(795, 395);
+            this.Controls.Add(this.btnNvConsulta);
             this.Controls.Add(this.richtxtConsulta);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.lblConsulta);
@@ -159,8 +172,7 @@ namespace ListadeRepositoriosGitHub
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmTeladeAcesso";
-            this.Text = "frmTeladeAcesso";
-            this.Load += new System.EventHandler(this.FrmTeladeAcesso_Load);
+            this.Text = "VVS Sistemas - Consulta ao GitHub";
             ((System.ComponentModel.ISupportInitialize)(this.repositoryBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.searchRepositoriesRequestBindingSource)).EndInit();
             this.ResumeLayout(false);
@@ -183,5 +195,6 @@ namespace ListadeRepositoriosGitHub
         private Label lblConsulta;
         private Label label4;
         private RichTextBox richtxtConsulta;
+        private Button btnNvConsulta;
     }
 }
